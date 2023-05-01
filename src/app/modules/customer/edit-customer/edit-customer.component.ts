@@ -54,10 +54,10 @@ export class EditCustomerComponent implements OnInit {
       this.customerService.updateCustomer(customer).subscribe(() => {
         this.form.reset();
       });
+      this.router.navigate(['/customers'], { relativeTo: this.route });
       this._snackBar.open('Customer updated successfully!', 'Dismiss', {
         duration: 2000 // 15 seconds
       });
-      this.router.navigate(['../'], { relativeTo: this.route });
     }
     else {
       this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
