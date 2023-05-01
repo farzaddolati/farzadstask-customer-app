@@ -10,15 +10,15 @@ export class CustomerValidator extends Validator<Customer> {
 
     this.ruleFor('firstName')
       .notEmpty()
-      .withMessage('Please enter first name 888');
+      .withMessage('Please enter first name');
 
     this.ruleFor('lastName')
       .notEmpty()
-      .withMessage('Please enter last name 999');
+      .withMessage('Please enter last name');
 
     this.ruleFor('email')
       .emailAddress()
-      .withMessage('please enter a valid email address 000');
+      .withMessage('please enter a valid email address');
   }
 }
 
