@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" >
+        <!-- <mat-error *ngIf="validationResult.firstName">{{validationResult.firstName}}</mat-error> -->
+        <div class="validation-error" *ngIf="validationResult.firstName">{{validationResult.firstName}}</div>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" >
+        <div class="validation-error" *ngIf="validationResult.lastName">{{validationResult.lastName}}</div>
+        <!-- <mat-error  *ngIf="validationResult.lastName">{{validationResult.lastName}}</mat-error> -->
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" >
+        <!-- <mat-error *ngIf="form.get('email')?.hasError('required')">Please enter an email address.</mat-error> -->
+        <!-- <mat-error *ngIf="form.get('email')?.invalid && !form.get('email')?.hasError('required')">Please enter a valid email address.</mat-error> -->
+        <!-- <mat-error *ngIf="validationResult.email">{{validationResult.email}}</mat-error> -->
+        
+        <div class="validation-error" *ngIf="validationResult.email">{{validationResult.email}}</div>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </div>
