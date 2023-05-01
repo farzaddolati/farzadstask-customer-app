@@ -5,12 +5,14 @@ import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomerRoutingModule } from './customer-routing.module';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 @NgModule({
   declarations: [
     CustomerListComponent,
     AddCustomerComponent,
+    EditCustomerComponent,
     
   ],
   imports: [
