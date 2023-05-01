@@ -1,4 +1,33 @@
+
 <div class="mat-elevation-z8">
+  <h2 style="color: rgb(82, 82, 82); margin-left: 10px;margin-top: 20px;">Edit Customer</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-field-row" style="margin-top: 25px;">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" >
+      <div class="validation-error" *ngIf="validationResult.firstName">{{validationResult.firstName}}</div>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" >
+      <div class="validation-error" *ngIf="validationResult.lastName">{{validationResult.lastName}}</div>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-row">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" >        
+      <div class="validation-error" *ngIf="validationResult.email">{{validationResult.email}}</div>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button color="warn" routerLink="/customers">Cancel</button>
+  </form>
+</div>
+
+
+
+<!-- <div class="mat-elevation-z8">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -21,4 +50,4 @@
       <button mat-raised-button color="primary">Save</button>
       <button mat-raised-button color="warn" routerLink="/customers">Cancel</button>
     </form>
-  </div>
+  </div> -->

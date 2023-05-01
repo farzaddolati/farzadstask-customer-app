@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/models/customer.model';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -15,6 +15,8 @@ import { ValidationErrors } from 'fluentvalidation-ts/dist/ValidationErrors';
 })
 export class AddCustomerComponent implements OnInit {
   form!: FormGroup;
+
+ 
 
   constructor(
     private formBuilder: FormBuilder,

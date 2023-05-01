@@ -1,0 +1,38 @@
+.validation-error{
+    color: rgb(231, 12, 12);
+    font-size: 12px;
+    /* height: 40px; */
+}
+
+.form-field-row {
+    
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 400px;
+  }
+  
+  div{
+    margin-top: 50px;
+    width: 50%;
+
+  }
+  button{
+    margin-left: 25px;;
+    margin-bottom: 25px;
+  }
+  div {
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-field-row mat-form-field {
+    flex: 1 1 calc(50% - 10px);
+  }
+  
+  .form-field-row mat-label {
+    flex: 0 0 100%;
+  }
