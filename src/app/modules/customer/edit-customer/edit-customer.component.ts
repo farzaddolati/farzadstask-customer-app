@@ -5,7 +5,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CustomerValidator } from 'src/app/services/add-customer-validator.service';
+import { CustomerValidator } from 'src/app/services/customer-validator.service';
 import { ValidationErrors } from 'fluentvalidation-ts/dist/ValidationErrors';
 
 @Component({

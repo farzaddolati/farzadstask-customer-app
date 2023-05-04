@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CustomerValidator } from './services/add-customer-validator.service'; // import CustomerValidator
+import { CustomerValidator } from './services/customer-validator.service';
+import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component'; 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeleteDialogComponent
   ],
  
   imports: [

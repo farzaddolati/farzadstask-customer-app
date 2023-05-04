@@ -4,7 +4,8 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -16,7 +17,7 @@ export class CustomerListComponent implements OnInit {
   dataSource!: MatTableDataSource<Customer>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private customerService: CustomerService,private router: Router) { }
+  constructor(private customerService: CustomerService,private router: Router,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     
@@ -24,14 +25,19 @@ export class CustomerListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(customers);
       this.dataSource.paginator = this.paginator;
     });
-  }
+  }  
   
-  deleteCustomer(customerId: number) {
-    this.customerService.deleteCustomer(customerId).subscribe(() => {
-      const index = this.dataSource.data.findIndex(customer => customer.id === customerId);
-      if (index >= 0) {
-        this.dataSource.data.splice(index, 1);
-        this.dataSource._updateChangeSubscription();
+  deleteCustomer(customerId: number): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {});
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {      
+        this.customerService.deleteCustomer(customerId).subscribe(() => {
+              const index = this.dataSource.data.findIndex(customer => customer.id === customerId);
+              if (index >= 0) {
+                this.dataSource.data.splice(index, 1);
+                this.dataSource._updateChangeSubscription();
+              }
+            });
       }
     });
   }
@@ -40,12 +46,10 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['/edit-customer', id]);
   }
 
-
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }  
+  } 
 
   goToAddCustomer() {
     this.router.navigate(['/add-customer']);
