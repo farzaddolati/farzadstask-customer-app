@@ -7,20 +7,24 @@ import { CustomerModule } from './modules/customer/customer.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CustomerValidator } from './services/add-customer-validator.service'; // import CustomerValidator
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+ 
   imports: [
     BrowserModule,
     AppRoutingModule,
     CustomerModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CustomerValidator], // add CustomerValidator to providers
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,11 +15,13 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     EditCustomerComponent,
     
   ],
+
   imports: [
     CommonModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    CustomerRoutingModule 
+    CustomerRoutingModule ,
+    
   ]
 })
 export class CustomerModule { }

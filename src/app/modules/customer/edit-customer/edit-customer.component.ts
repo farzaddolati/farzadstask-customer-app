@@ -1,5 +1,12 @@
+
+
+
+
+
+
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Customer } from 'src/app/models/customer.model';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +21,12 @@ import { ValidationErrors } from 'fluentvalidation-ts/dist/ValidationErrors';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('')
+  });
+  // form: FormGroup = new FormGroup({});
   customer: Customer = { id: 0, firstName: '', lastName: '', email: '' };
   constructor(
     private formBuilder: FormBuilder,
@@ -34,6 +46,7 @@ export class EditCustomerComponent implements OnInit {
           lastName: [customer.lastName, Validators.required],
           email: [customer.email, [Validators.required, Validators.email]]
         });
+        
       });
     });
   }

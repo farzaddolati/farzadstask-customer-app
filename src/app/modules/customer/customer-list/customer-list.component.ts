@@ -25,6 +25,7 @@ export class CustomerListComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     });
   }
+  
   deleteCustomer(customerId: number) {
     this.customerService.deleteCustomer(customerId).subscribe(() => {
       const index = this.dataSource.data.findIndex(customer => customer.id === customerId);

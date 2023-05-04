@@ -15,6 +15,7 @@ import { ValidationErrors } from 'fluentvalidation-ts/dist/ValidationErrors';
 })
 export class AddCustomerComponent implements OnInit {
   form!: FormGroup;
+  
 
  
 
