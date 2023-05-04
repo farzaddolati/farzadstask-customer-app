@@ -3,7 +3,9 @@
   color: rgb(231, 12, 12);
   font-size: 12px;
 }
-
+.mat-width-set{
+  width: 350px;
+}
 .mat-form-field {
   width: 100%;
   margin-left: 50px !important;
@@ -38,5 +40,5 @@
 }
 
 button {
-  margin: 0 10px;
+  margin: 0 10px 10px;
 }

@@ -54,7 +54,7 @@ export class AddCustomerComponent implements OnInit {
           this.form.reset();
 
         });
-        this._snackBar.open('Customer added successfully!', 'Dismiss', {
+        this._snackBar.open('Customer added successfully!', 'Info', {
           duration: 2000 // 15 seconds
         });
         this.router.navigate(['../'], { relativeTo: this.route });

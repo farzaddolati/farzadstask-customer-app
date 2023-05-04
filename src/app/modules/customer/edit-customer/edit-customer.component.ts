@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Customer } from 'src/app/models/customer.model';
@@ -68,13 +61,13 @@ export class EditCustomerComponent implements OnInit {
         this.form.reset();
       });
       this.router.navigate(['/customers'], { relativeTo: this.route });
-      this._snackBar.open('Customer updated successfully!', 'Dismiss', {
-        duration: 2000 // 15 seconds
+      this._snackBar.open('Customer updated successfully!', 'Info', {
+        duration: 2000 
       });
     }
     else {
       this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
-        duration: 2000 // 15 seconds
+        duration: 4000 
       });
     }
   }
