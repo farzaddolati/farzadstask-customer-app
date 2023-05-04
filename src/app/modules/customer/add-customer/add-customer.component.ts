@@ -34,31 +34,68 @@ export class AddCustomerComponent implements OnInit {
 
   validator:CustomerValidator = new CustomerValidator();
   validationResult: ValidationErrors<Customer> = {};
-  onSubmit(): void {
-    {
-      const customer: Customer = {
-        id: this.form.value.id,
-        firstName: this.form.value.firstName,
-        lastName: this.form.value.lastName,
-        email: this.form.value.email
-      };
+  
+  
 
-      this.validationResult = this.validator.validate(customer);
-      if (Object.keys(this.validationResult).length <= 0) {
-        this.customerService.addCustomer(customer).subscribe(() => {
-          this.form.reset();
-
-        });
+  async onSubmit(): Promise<void> {
+    const customer: Customer = {
+      id: this.form.value.id,
+      firstName: this.form.value.firstName,
+      lastName: this.form.value.lastName,
+      email: this.form.value.email
+    };
+  
+    this.validationResult = this.validator.validate(customer);
+  
+    if (Object.keys(this.validationResult).length <= 0) {
+      try {
+        await this.customerService.addCustomer(customer).toPromise();
+        this.form.reset();
         this._snackBar.open('Customer added successfully!', 'Info', {
           duration: 2000 
         });
+  
         this.router.navigate(['../'], { relativeTo: this.route });
-      }
-      else {
-        this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
+      } catch (error) {
+        this._snackBar.open('An error occurred while adding customer!', 'Dismiss', {
           duration: 4000 
         });
       }
+    } else {
+      this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
+        duration: 4000 
+      });
     }
   }
+
+  
+  
+  // onSubmit(): void {
+  //   {
+  //     const customer: Customer = {
+  //       id: this.form.value.id,
+  //       firstName: this.form.value.firstName,
+  //       lastName: this.form.value.lastName,
+  //       email: this.form.value.email
+  //     };
+
+  //     this.validationResult = this.validator.validate(customer);
+  //     if (Object.keys(this.validationResult).length <= 0) {
+  //       this.customerService.addCustomer(customer).subscribe(() => {
+  //         this.form.reset();
+  //         this._snackBar.open('Customer added successfully!', 'Info', {
+  //           duration: 2000 
+  //         });
+  //         this.router.navigate(['../'], { relativeTo: this.route });
+  
+
+  //       });
+  //     }
+  //     else {
+  //       this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
+  //         duration: 4000 
+  //       });
+  //     }
+  //   }
+  // }
 }
