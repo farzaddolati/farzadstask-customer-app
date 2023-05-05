@@ -7,7 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CustomerValidator } from 'src/app/services/customer-validator.service';
 import { ValidationErrors } from 'fluentvalidation-ts/dist/ValidationErrors';
-
+import { CityService } from 'src/app/services/city.service';
+import { City } from 'src/app/models/city.model';
 @Component({
   selector: 'app-edit-customer',
   templateUrl: './edit-customer.component.html',
@@ -17,13 +18,18 @@ export class EditCustomerComponent implements OnInit {
   form: FormGroup = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    email: new FormControl('')
+    email: new FormControl(''),
+    phoneNumber:  new FormControl(''),
+    address: new FormControl(''),
+    cityId: new FormControl(''),
   });
   // form: FormGroup = new FormGroup({});
   customer: Customer = { id: 0, firstName: '', lastName: '', email: '', phoneNumber: '', address: '',cityName:'', cityId: 0  };
+  cities: City[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
+    private cityService: CityService,
     private _snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute
@@ -40,8 +46,12 @@ export class EditCustomerComponent implements OnInit {
           email: [customer.email, [Validators.required, Validators.email]],
           phoneNumber: [customer.phoneNumber, Validators.required],
           address: [customer.address, Validators.required],
-          cityId: [customer.cityId]
+          cityId: [customer.cityId],
+          cityName:['']
          
+        });
+        this.cityService.getCities().subscribe(cities => {
+          this.cities = cities;
         });
         
       });
@@ -87,13 +97,14 @@ export class EditCustomerComponent implements OnInit {
       phoneNumber: this.form.value.phoneNumber,
       address: this.form.value.address,
       cityName: this.form.value.cityName,
-      cityId: this.form.value.cityId
-     
+      cityId: this.form.value.cityId,
     };
+    // const customer: Customer = this.form.value;
   
     this.validationResult = this.validator.validate(customer);
     if (Object.keys(this.validationResult).length <= 0) {
       try {
+        console.log(customer);
         await this.customerService.updateCustomer(customer).toPromise();
         this.form.reset();
         this._snackBar.open('Customer updated successfully!', 'Info', {
