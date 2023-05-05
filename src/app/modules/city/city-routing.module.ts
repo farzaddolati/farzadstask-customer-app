@@ -6,7 +6,7 @@ import { AddCityComponent } from './add-city/add-city.component';
 import { EditCityComponent } from './edit-city/edit-city.component';
 
 const routes: Routes = [
-    { path: 'cities', component: CityListComponent },
+    { path: 'city', component: CityListComponent },
     { path: 'add-city', component: AddCityComponent },
     { path: 'edit-city/:id', component: EditCityComponent }
   ];

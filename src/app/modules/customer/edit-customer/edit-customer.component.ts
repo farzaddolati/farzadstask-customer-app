@@ -20,7 +20,7 @@ export class EditCustomerComponent implements OnInit {
     email: new FormControl('')
   });
   // form: FormGroup = new FormGroup({});
-  customer: Customer = { id: 0, firstName: '', lastName: '', email: '' };
+  customer: Customer = { id: 0, firstName: '', lastName: '', email: '', phoneNumber: '', address: '',cityName:'', cityId: 0  };
   constructor(
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
@@ -37,7 +37,11 @@ export class EditCustomerComponent implements OnInit {
         this.form = this.formBuilder.group({
           firstName: [customer.firstName, Validators.required],
           lastName: [customer.lastName, Validators.required],
-          email: [customer.email, [Validators.required, Validators.email]]
+          email: [customer.email, [Validators.required, Validators.email]],
+          phoneNumber: [customer.phoneNumber, Validators.required],
+          address: [customer.address, Validators.required],
+          cityId: [customer.cityId]
+         
         });
         
       });
@@ -79,7 +83,12 @@ export class EditCustomerComponent implements OnInit {
       id: this.customer.id,
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
-      email: this.form.value.email
+      email: this.form.value.email,
+      phoneNumber: this.form.value.phoneNumber,
+      address: this.form.value.address,
+      cityName: this.form.value.cityName,
+      cityId: this.form.value.cityId
+     
     };
   
     this.validationResult = this.validator.validate(customer);

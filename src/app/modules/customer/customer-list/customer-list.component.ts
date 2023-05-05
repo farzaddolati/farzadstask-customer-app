@@ -13,7 +13,7 @@ import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialo
 })
 export class CustomerListComponent implements OnInit {
  
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'actions'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'phoneNumber','cityName', 'actions'];
   dataSource!: MatTableDataSource<Customer>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -23,6 +23,7 @@ export class CustomerListComponent implements OnInit {
     
     this.customerService.getCustomers().subscribe(customers => {
       this.dataSource = new MatTableDataSource(customers);
+      console.log(customers);
       this.dataSource.paginator = this.paginator;
     });
   }  

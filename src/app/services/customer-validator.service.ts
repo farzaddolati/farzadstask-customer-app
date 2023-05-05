@@ -13,6 +13,14 @@ export class CustomerValidator extends Validator<Customer> {
       .notEmpty()
       .withMessage('Please enter last name');
 
+    this.ruleFor('phoneNumber')
+      .notEmpty()
+      .withMessage('Please enter phone number');
+
+      this.ruleFor('address')
+      .notEmpty()
+      .withMessage('Please enter address');
+
     this.ruleFor('email')
       .emailAddress()
       .withMessage('please enter a valid email address');
