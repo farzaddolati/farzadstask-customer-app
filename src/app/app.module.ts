@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomerValidator } from './services/customer-validator.service';
 import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component'; 
+import { CityModule } from './modules/city/city.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.comp
     BrowserModule,
     AppRoutingModule,
     CustomerModule,
+    CityModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
