@@ -48,7 +48,6 @@ export class EditCityComponent implements OnInit {
       id: this.city.id,
       name: this.form.value.name
     };
-    // const customer: Customer = this.form.value;
   
     this.validationResult = this.validator.validate(city);
     if (Object.keys(this.validationResult).length <= 0) {
