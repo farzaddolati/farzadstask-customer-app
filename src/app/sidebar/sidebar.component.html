@@ -1,21 +1,23 @@
 <mat-sidenav-container autosize>
-  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+  <mat-sidenav  #sidenav mode="side" opened="isExpanded">
+    
     <mat-nav-list>
       <mat-list-item (click)="isExpanded = !isExpanded">
+        
         <mat-icon mat-list-icon class="hamburger-button" [ngClass]="{ rotated: isExpanded }">menu
         </mat-icon>
       </mat-list-item>
-      <mat-list-item [routerLink]="['./']">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+      <mat-list-item  [routerLink]="['./']">
+        <mat-icon style="width: 50px;" mat-list-icon>home</mat-icon>
+        <span  *ngIf="isExpanded" class="person">Dashboard</span>
       </mat-list-item>
-      <mat-list-item [routerLink]="['/customers']">
-        <mat-icon mat-list-icon>person</mat-icon>
-        <span *ngIf="isExpanded" class="person">Customer</span>
+      <mat-list-item  [routerLink]="['/customers']">
+        <mat-icon style="width: 50px;" mat-list-icon>person</mat-icon>
+        <span  *ngIf="isExpanded" class="person">Customer List</span>
       </mat-list-item>
       <mat-list-item [routerLink]="['/city']">
-        <mat-icon mat-list-icon>location_city</mat-icon>
-        <span *ngIf="isExpanded" class="city">City</span>
+        <mat-icon style="width: 50px;" mat-list-icon>location_city</mat-icon>
+        <span *ngIf="isExpanded" class="city">City List</span>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

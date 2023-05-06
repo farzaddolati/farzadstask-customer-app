@@ -1,3 +1,4 @@
+
  .mat-sidenav-container {
      height: 100vh;
      display: flex; 
@@ -10,3 +11,19 @@
      margin-left: 200px; 
    }  
 
+
+   .mat-list-icon {
+    margin-right: 16px;
+  }
+  
+  .menu-item {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .menu-item.expanded {
+    width: auto;
+    margin-left: 8px;
+  }
