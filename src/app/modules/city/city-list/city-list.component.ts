@@ -24,7 +24,6 @@ export class CityListComponent implements OnInit {
     
     this.cityService.getCities().subscribe(cities => {
       this.dataSource = new MatTableDataSource(cities);
-      console.log(cities);
       this.dataSource.paginator = this.paginator;
     });
   }  

@@ -23,7 +23,6 @@ export class CustomerListComponent implements OnInit {
     
     this.customerService.getCustomers().subscribe(customers => {
       this.dataSource = new MatTableDataSource(customers);
-      console.log(customers);
       this.dataSource.paginator = this.paginator;
     });
   }  

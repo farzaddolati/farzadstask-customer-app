@@ -76,7 +76,6 @@ export class EditCustomerComponent implements OnInit {
     this.validationResult = this.validator.validate(customer);
     if (Object.keys(this.validationResult).length <= 0) {
       try {
-        console.log(customer);
         await this.customerService.updateCustomer(customer).toPromise();
         this.form.reset();
         this._snackBar.open('Customer updated successfully!', 'Info', {
