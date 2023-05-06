@@ -40,16 +40,11 @@ export class AddCustomerComponent implements OnInit {
     this.cityService.getCities().subscribe(cities => {
       this.cities = cities;
     });
- 
 
-  }
-
-  
+  }  
 
   validator:CustomerValidator = new CustomerValidator();
   validationResult: ValidationErrors<Customer> = {};
-  
-  
 
   async onSubmit(): Promise<void> {
     const customer: Customer = this.form.value;
@@ -83,35 +78,4 @@ export class AddCustomerComponent implements OnInit {
       });
     }
   }
-
-  
-  
-  // onSubmit(): void {
-  //   {
-  //     const customer: Customer = {
-  //       id: this.form.value.id,
-  //       firstName: this.form.value.firstName,
-  //       lastName: this.form.value.lastName,
-  //       email: this.form.value.email
-  //     };
-
-  //     this.validationResult = this.validator.validate(customer);
-  //     if (Object.keys(this.validationResult).length <= 0) {
-  //       this.customerService.addCustomer(customer).subscribe(() => {
-  //         this.form.reset();
-  //         this._snackBar.open('Customer added successfully!', 'Info', {
-  //           duration: 2000 
-  //         });
-  //         this.router.navigate(['../'], { relativeTo: this.route });
-  
-
-  //       });
-  //     }
-  //     else {
-  //       this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
-  //         duration: 4000 
-  //       });
-  //     }
-  //   }
-  // }
 }

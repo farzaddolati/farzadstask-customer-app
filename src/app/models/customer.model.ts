@@ -8,7 +8,6 @@ export interface Customer{
     phoneNumber: string;
     address: string;
     cityName: string;
-    cityId:number;
-   
+    cityId:number;   
 }
 

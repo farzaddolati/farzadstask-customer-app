@@ -1,0 +1,28 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="hamburger-button" [ngClass]="{ rotated: isExpanded }">menu
+        </mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['./']">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/customers']">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span *ngIf="isExpanded" class="person">Customer</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/city']">
+        <mat-icon mat-list-icon>location_city</mat-icon>
+        <span *ngIf="isExpanded" class="city">City</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <h4>CRUD Task For Hahn GmbH</h4>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

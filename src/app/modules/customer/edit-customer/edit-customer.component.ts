@@ -60,34 +60,7 @@ export class EditCustomerComponent implements OnInit {
 
   validator:CustomerValidator = new CustomerValidator();
   validationResult: ValidationErrors<Customer> = {};
-  //a:CustomerValidator;
-  // onSubmit(): void {
-  //   const customer: Customer = {
-  //     id: this.customer.id,
-  //     firstName: this.form.value.firstName,
-  //     lastName: this.form.value.lastName,
-  //     email: this.form.value.email
-  //   };
   
-  //   this.validationResult = this.validator.validate(customer);
-  //   if (Object.keys(this.validationResult).length <= 0) {
-  //     this.customerService.updateCustomer(customer).subscribe(() => {
-  //       this.form.reset();
-  //     });
-  //     this.router.navigate(['/customers'], { relativeTo: this.route });
-  //     this._snackBar.open('Customer updated successfully!', 'Info', {
-  //       duration: 2000 
-  //     });
-  //   }
-  //   else {
-  //     this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
-  //       duration: 4000 
-  //     });
-  //   }
-  // }
-
-
-
   async onSubmit(): Promise<void> {
     const customer: Customer = {
       id: this.customer.id,
@@ -99,7 +72,6 @@ export class EditCustomerComponent implements OnInit {
       cityName: this.form.value.cityName,
       cityId: this.form.value.cityId,
     };
-    // const customer: Customer = this.form.value;
   
     this.validationResult = this.validator.validate(customer);
     if (Object.keys(this.validationResult).length <= 0) {
@@ -122,6 +94,5 @@ export class EditCustomerComponent implements OnInit {
       });
     }
   }
-
 
 }

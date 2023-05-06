@@ -41,8 +41,7 @@ export class AddCityComponent implements OnInit {
   
 
   async onSubmit(): Promise<void> {
-    const city: City = this.form.value;
-    
+    const city: City = this.form.value;   
   
     this.validationResult = this.validator.validate(city);
   
@@ -67,35 +66,4 @@ export class AddCityComponent implements OnInit {
       });
     }
   }
-
-  
-  
-  // onSubmit(): void {
-  //   {
-  //     const customer: Customer = {
-  //       id: this.form.value.id,
-  //       firstName: this.form.value.firstName,
-  //       lastName: this.form.value.lastName,
-  //       email: this.form.value.email
-  //     };
-
-  //     this.validationResult = this.validator.validate(customer);
-  //     if (Object.keys(this.validationResult).length <= 0) {
-  //       this.customerService.addCustomer(customer).subscribe(() => {
-  //         this.form.reset();
-  //         this._snackBar.open('Customer added successfully!', 'Info', {
-  //           duration: 2000 
-  //         });
-  //         this.router.navigate(['../'], { relativeTo: this.route });
-  
-
-  //       });
-  //     }
-  //     else {
-  //       this._snackBar.open('Please Solve Error Messages!', 'Dismiss', {
-  //         duration: 4000 
-  //       });
-  //     }
-  //   }
-  // }
 }

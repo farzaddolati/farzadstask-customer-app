@@ -1,0 +1,12 @@
+ .mat-sidenav-container {
+     height: 100vh;
+     display: flex; 
+   }
+
+   .mat-sidenav-content {
+     flex: 1; 
+     padding: 16px;
+     box-sizing: border-box; 
+     margin-left: 200px; 
+   }  
+

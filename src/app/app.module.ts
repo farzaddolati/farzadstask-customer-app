@@ -11,11 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CustomerValidator } from './services/customer-validator.service';
 import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component'; 
 import { CityModule } from './modules/city/city.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    SidebarComponent
   ],
  
   imports: [
